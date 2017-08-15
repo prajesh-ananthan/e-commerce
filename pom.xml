@@ -4,12 +4,12 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>io.prajesh</groupId>
-  <artifactId>spring-mvc</artifactId>
+  <artifactId>e-commerce</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>spring-mvc</name>
-  <description>Spring MVC Playground project</description>
+  <name>e-commerce</name>
+  <description>e-commerce project</description>
 
   <parent>
     <groupId>org.springframework.boot</groupId>
