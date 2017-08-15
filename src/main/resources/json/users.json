@@ -1,0 +1,74 @@
+[
+  {
+    "userName": "pjesh",
+    "password": "password",
+    "customer": {
+      "id": 1,
+      "firstName": "Prajesh",
+      "lastName": "Ananthan",
+      "email": "prajesh.ananthan@test.com",
+      "phoneNumber": "01234567812",
+      "billingAddress": {
+        "addressLine1": "50, Jalan RJ, 1/21",
+        "addressLine2": "Taman Rasah Jaya",
+        "city": "Seremban",
+        "state": "Negeri Sembilan",
+        "zipCode": "70300"
+      }
+    }
+  },
+  {
+    "userName": "divy",
+    "password": "password",
+    "customer": {
+      "id": 2,
+      "firstName": "Divya",
+      "lastName": "Garg",
+      "email": "divya.garg@test.com",
+      "phoneNumber": "01712345613",
+      "billingAddress": {
+        "addressLine1": "50, Jalan RJ, 1/21",
+        "addressLine2": "Taman Rasah Jaya",
+        "city": "Seremban",
+        "state": "Negeri Sembilan",
+        "zipCode": "70300"
+      }
+    }
+  },
+  {
+    "userName": "usha",
+    "password": "password",
+    "customer": {
+      "id": 3,
+      "firstName": "Usha",
+      "lastName": "Ananthan",
+      "email": "usha_ananthan@test.com",
+      "phoneNumber": "01712345610",
+      "billingAddress": {
+        "addressLine1": "50, Jalan RJ, 1/21",
+        "addressLine2": "Taman Rasah Jaya",
+        "city": "Seremban",
+        "state": "Negeri Sembilan",
+        "zipCode": "70300"
+      }
+    }
+  },
+  {
+    "userName": "anand",
+    "password": "password",
+    "customer": {
+      "id": 4,
+      "firstName": "Ananthan",
+      "lastName": "Valayudham",
+      "email": "ananthan.valayudham@test.com",
+      "phoneNumber": "0171234569",
+      "billingAddress": {
+        "addressLine1": "50, Jalan RJ, 1/21",
+        "addressLine2": "Taman Rasah Jaya",
+        "city": "Seremban",
+        "state": "Negeri Sembilan",
+        "zipCode": "70300"
+      }
+    }
+  }
+]
