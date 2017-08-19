@@ -1,6 +1,7 @@
 package io.prajesh.controller;
 
 import com.google.common.annotations.VisibleForTesting;
+import io.prajesh.commands.CustomerForm;
 import io.prajesh.domain.Customer;
 import io.prajesh.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,8 +77,8 @@ public class CustomerController {
   }
 
   @PostMapping
-  public String createOrUpdateCustomer(Customer customer) {
-    Customer savedCustomer = customerService.saveOrUpdate(customer);
+  public String createOrUpdateCustomer(CustomerForm customerForm) {
+    Customer savedCustomer = customerService.saveOrUpdateCustomerForm(customerForm);
     return REDIRECT_CUSTOMER_PAGE + savedCustomer.getId();
   }
 }

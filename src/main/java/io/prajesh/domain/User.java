@@ -13,8 +13,7 @@ import java.util.List;
 @Entity
 public class User extends AbstractDomain {
 
-
-  @ManyToMany
+  @ManyToMany(fetch = FetchType.EAGER)
   @JoinTable
   private List<Role> roles = new ArrayList<>();
   private String userName;

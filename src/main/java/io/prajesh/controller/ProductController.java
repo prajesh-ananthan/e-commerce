@@ -31,7 +31,7 @@ public class ProductController {
   @VisibleForTesting
   static final String PRODUCTS_PAGE = PRODUCT + "/" + PRODUCTS;
   @VisibleForTesting
-  static final String REDIRECT_PRODUCTS = "redirect:/" + PRODUCTS + "/";
+  static final String REDIRECT_PRODUCT_LIST = "redirect:/" + PRODUCT + "/list";
   @VisibleForTesting
   static final String REDIRECT_PRODUCT_PAGE = "redirect:/" + PRODUCT + "/";
 
@@ -75,7 +75,7 @@ public class ProductController {
   @GetMapping(value = "/remove/{id}")
   public String delete(@PathVariable Integer id, Model model) {
     productService.remove(id);
-    return REDIRECT_PRODUCTS;
+    return REDIRECT_PRODUCT_LIST;
   }
 
   @PostMapping

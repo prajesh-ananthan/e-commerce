@@ -4,6 +4,7 @@ import io.prajesh.domain.AbstractDomain;
 import io.prajesh.domain.User;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ public class Role extends AbstractDomain {
 
   // A single role can have many users
   // A single user can have many roles
-  @ManyToMany
+  @ManyToMany(fetch = FetchType.EAGER)
   @JoinTable
   private List<User> users = new ArrayList<>();
   private String role;

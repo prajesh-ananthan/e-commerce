@@ -4,12 +4,14 @@ import io.prajesh.domain.*;
 import io.prajesh.domain.security.Role;
 import io.prajesh.enums.OrderStatus;
 import io.prajesh.service.*;
+import io.prajesh.service.constants.ProfileConfig;
 import io.prajesh.util.JsonUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationListener;
+import org.springframework.context.annotation.Profile;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
@@ -21,9 +23,10 @@ import java.util.List;
  *
  * @author Prajesh Ananthan, arvato Systems Malaysia Sdn Bhd
  *         <p>
- *         Bootstrap data for loading Customer and Product content
+ *         Bootstrap class for mocking Customer and Product page content
  */
 @Component
+@Profile(ProfileConfig.DEVELOPMENT)
 public class SpringJPABootstrap implements ApplicationListener<ContextRefreshedEvent> {
 
   private static final Logger LOG = LoggerFactory.getLogger(SpringJPABootstrap.class);
