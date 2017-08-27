@@ -65,10 +65,9 @@ public class ProductController {
   public String findById(@PathVariable Integer id, Model model) {
     final Product product = productService.findById(id);
     if (product != null) {
-      model.addAttribute(PRODUCT, productToProductForm.convert(product));
-      return PRODUCT_PAGE;
+      model.addAttribute(PRODUCT, product);
     }
-    return ERROR_PAGE;
+    return PRODUCT_PAGE;
   }
 
   @GetMapping("/new")
@@ -84,9 +83,9 @@ public class ProductController {
     return PRODUCT_FORM_PAGE;
   }
 
-  @GetMapping(value = "/remove/{id}")
+  @GetMapping(value = "/delete/{id}")
   public String delete(@PathVariable Integer id, Model model) {
-    productService.remove(id);
+    productService.remove(id); // TODO: Fix deletion
     return REDIRECT_PRODUCT_LIST;
   }
 

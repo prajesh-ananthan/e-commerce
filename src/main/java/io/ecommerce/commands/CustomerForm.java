@@ -1,19 +1,35 @@
 package io.ecommerce.commands;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+
+import javax.validation.constraints.Size;
+
 /**
  * @author Prajesh Ananthan
  *         Created on 19/8/2017.
  */
 public class CustomerForm {
+
+
   private Integer userId;
   private Integer userVersion;
   private Integer customerId;
   private Integer customerVersion;
+
+  @NotEmpty
+  @Size(min = 2, max = 75)
   private String userName;
+  @NotEmpty
   private String passwordText;
+  @NotEmpty
   private String passwordTextConfirm;
+  @NotEmpty
   private String firstName;
+  @NotEmpty
   private String lastName;
+  @NotEmpty
+  @Email
   private String email;
   private String phoneNumber;
 

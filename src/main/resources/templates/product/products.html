@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Spring MVC Playground - List Products</title>
+    <title>e-commerce - Products</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
     <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -35,7 +35,7 @@
                 <td th:text="${product.imageUrl}"></td>
                 <td><a th:href="${'/product/' + product.id}">View</a></td>
                 <td><a th:href="${'/product/edit/' + product.id}">Edit</a></td>
-                <td><a th:href="${'/product/remove/' + product.id}">Delete</a></td>
+                <td><a th:href="${'/product/delete/' + product.id}">Delete</a></td>
             </tr>
         </table>
     </div>
