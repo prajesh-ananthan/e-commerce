@@ -1,5 +1,6 @@
 package io.ecommerce.service;
 
+import io.ecommerce.commands.ProductForm;
 import io.ecommerce.domain.Product;
 import org.springframework.stereotype.Service;
 
@@ -10,4 +11,5 @@ import org.springframework.stereotype.Service;
 @Service
 public interface ProductService extends CRUDService<Product> {
   String PRODUCTS_JSON_FILE = "json/products.json";
+  Product saveOrUpdateProductForm(ProductForm productForm);
 }

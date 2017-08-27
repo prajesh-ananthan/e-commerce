@@ -17,6 +17,9 @@ import java.util.List;
 @Entity
 public class Role extends AbstractDomain {
 
+  public static String ADMIN = "ADMIN";
+  public static String CUSTOMER = "CUSTOMER";
+
   // A single role can have many users
   // A single user can have many roles
   @ManyToMany(fetch = FetchType.EAGER)

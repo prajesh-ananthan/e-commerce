@@ -1,5 +1,7 @@
 package io.ecommerce.service.impl;
 
+import io.ecommerce.commands.ProductForm;
+import io.ecommerce.converters.ProductFormToProduct;
 import io.ecommerce.domain.Product;
 import io.ecommerce.repositories.ProductRepository;
 import io.ecommerce.service.ProductService;
@@ -17,10 +19,16 @@ import java.util.List;
 public class ProductServiceImpl implements ProductService {
 
   private ProductRepository productRepository;
+  private ProductFormToProduct productFormToProduct;
 
   @Autowired
   public void setProductRepository(ProductRepository productRepository) {
     this.productRepository = productRepository;
+  }
+
+  @Autowired
+  public void setProductFormToProduct(ProductFormToProduct productFormToProduct) {
+    this.productFormToProduct = productFormToProduct;
   }
 
   @Override
@@ -43,5 +51,11 @@ public class ProductServiceImpl implements ProductService {
   @Override
   public void remove(Integer id) {
     productRepository.delete(id);
+  }
+
+  @Override
+  public Product saveOrUpdateProductForm(ProductForm productForm) {
+    Product product = productFormToProduct.convert(productForm);
+    return productRepository.save(product);
   }
 }
