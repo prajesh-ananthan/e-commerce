@@ -11,4 +11,6 @@ import org.springframework.stereotype.Service;
 public interface UserService extends CRUDService<User> {
   String USERS_JSON_FILE = "json/users.json";
   String ADMIN = "ADMIN";
+
+  User findUserByUserName(String userName);
 }

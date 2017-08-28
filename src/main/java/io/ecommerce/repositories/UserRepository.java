@@ -8,4 +8,5 @@ import org.springframework.data.repository.CrudRepository;
  *         Created on 17/8/2017.
  */
 public interface UserRepository extends CrudRepository<User, Integer> {
+  User findByUserName();
 }
