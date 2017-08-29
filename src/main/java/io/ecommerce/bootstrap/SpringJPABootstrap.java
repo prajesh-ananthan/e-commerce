@@ -4,7 +4,7 @@ import io.ecommerce.domain.*;
 import io.ecommerce.domain.security.Role;
 import io.ecommerce.enums.OrderStatus;
 import io.ecommerce.service.*;
-import io.ecommerce.service.constants.ProfileConfig;
+import io.ecommerce.service.constants.Environment;
 import io.ecommerce.util.JsonUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,7 +26,7 @@ import java.util.List;
  *         Bootstrap class for mocking Customer and Product page content
  */
 @Component
-@Profile(ProfileConfig.DEVELOPMENT)
+@Profile(Environment.DEVELOPMENT)
 public class SpringJPABootstrap implements ApplicationListener<ContextRefreshedEvent> {
 
   private static final Logger LOG = LoggerFactory.getLogger(SpringJPABootstrap.class);
@@ -86,7 +86,7 @@ public class SpringJPABootstrap implements ApplicationListener<ContextRefreshedE
     roleService.saveOrUpdate(defaultRole);
 
     Role adminRole = new Role();
-    adminRole.setRole(UserService.ADMIN);
+    adminRole.setRole(Role.ADMIN);
     roleService.saveOrUpdate(adminRole);
   }
 
