@@ -6,10 +6,8 @@ import io.ecommerce.enums.OrderStatus;
 import io.ecommerce.service.*;
 import io.ecommerce.service.constants.Environment;
 import io.ecommerce.util.JsonUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Profile;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -27,16 +25,14 @@ import java.util.List;
  */
 @Component
 @Profile(Environment.DEVELOPMENT)
+@Slf4j
 public class SpringJPABootstrap implements ApplicationListener<ContextRefreshedEvent> {
 
-  private static final Logger LOG = LoggerFactory.getLogger(SpringJPABootstrap.class);
   private ProductService productService;
   private CustomerService customerService;
   private UserService userService;
   private OrderService orderService;
   private RoleService roleService;
-  @Value("${bootstrap.data}")
-  private boolean initBootstrap;
 
   @Autowired
   public void setCustomerService(CustomerService customerService) {
@@ -65,18 +61,16 @@ public class SpringJPABootstrap implements ApplicationListener<ContextRefreshedE
 
   @Override
   public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
-    if (initBootstrap) {
-      try {
-        loadProducts();
-        loadUserAndCustomers();
-        loadCarts();
-        loadOrderHistory();
-        loadRoles();
-        applyDefaultRolesOnUsers();
-        applyAdminRoleOnUsers();
-      } catch (IOException e) {
-        LOG.error("Unable to open JSON file: ", e.getMessage());
-      }
+    try {
+      loadProducts();
+      loadUserAndCustomers();
+      loadCarts();
+      loadOrderHistory();
+      loadRoles();
+      applyDefaultRolesOnUsers();
+      applyAdminRoleOnUsers();
+    } catch (IOException e) {
+      log.error("Unable to open JSON file: ", e.getMessage());
     }
   }
 
