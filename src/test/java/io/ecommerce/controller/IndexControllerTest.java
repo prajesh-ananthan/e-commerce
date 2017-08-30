@@ -1,6 +1,7 @@
 package io.ecommerce.controller;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -28,6 +29,22 @@ public class IndexControllerTest {
   public void testIndexPage() throws Exception {
     mockMvc.perform(get("/"))
         .andExpect(status().isOk())
-        .andExpect(view().name("index"));
+        .andExpect(view().name(IndexController.INDEX_PAGE));
+  }
+
+  @Ignore
+  @Test
+  public void testLoginPage() throws Exception {
+    mockMvc.perform(get("/login"))
+        .andExpect(status().isOk())
+        .andExpect(view().name(IndexController.LOGIN_PAGE));
+  }
+
+  @Ignore
+  @Test
+  public void testAccessDeniedPage() throws Exception {
+    mockMvc.perform(get("/access_denied"))
+        .andExpect(status().isOk())
+        .andExpect(view().name(IndexController.ACCESS_DENIED));
   }
 }

@@ -10,10 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class IndexController {
-
-  private static final String INDEX_PAGE = "index";
-  private static final String LOGIN_PAGE = "login";
-  private static final String ACCESS_DENIED = "access_denied";
+  static final String INDEX_PAGE = "index";
+  static final String LOGIN_PAGE = "login";
+  static final String ACCESS_DENIED = "access_denied";
 
   @RequestMapping("/")
   public String home() {
