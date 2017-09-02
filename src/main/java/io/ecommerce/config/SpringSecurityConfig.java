@@ -21,13 +21,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 @Configuration
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
-  private AuthenticationProvider authenticationProvider;
-
   @Autowired
   @Qualifier("daoAuthenticationProvider")
-  public void setAuthenticationProvider(AuthenticationProvider authenticationProvider) {
-    this.authenticationProvider = authenticationProvider;
-  }
+  private AuthenticationProvider authenticationProvider;
 
   @Bean
   public PasswordEncoder passwordEncoder(StrongPasswordEncryptor strongPasswordEncryptor) {
