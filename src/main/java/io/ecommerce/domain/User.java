@@ -87,7 +87,7 @@ public class User extends AbstractDomain {
   }
 
   public void addRole(Role role) {
-    if (!roles.contains(role)) {
+    if (!this.roles.contains(role)) {
       roles.add(role);
     }
     if (!role.getUsers().contains(this)) {

@@ -15,7 +15,7 @@ import java.util.Collection;
  *         Created on 28/8/2017.
  */
 @Component
-public class UserToUserDetails implements Converter<User, UserDetails> {
+public class UserToUserDetailsConverter implements Converter<User, UserDetails> {
 
   @Override
   public UserDetails convert(User user) {
