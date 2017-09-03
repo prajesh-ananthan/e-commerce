@@ -19,7 +19,7 @@ public class UserToUserDetailsConverterTest {
 
   @Before
   public void setUp() throws Exception {
-    converter = new UserToUserDetailsConverter();
+    converter = new UserToUserDetails();
   }
 
   @Test
