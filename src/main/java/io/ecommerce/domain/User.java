@@ -27,6 +27,16 @@ public class User extends AbstractDomain {
   @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
   private Cart cart;
 
+  private Integer failedLoginAttempts = 0;
+
+  public Integer getFailedLoginAttempts() {
+    return failedLoginAttempts;
+  }
+
+  public void setFailedLoginAttempts(Integer failedLoginAttempts) {
+    this.failedLoginAttempts = failedLoginAttempts;
+  }
+
   public List<Role> getRoles() {
     return roles;
   }
