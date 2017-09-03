@@ -6,15 +6,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
-/**
- * @author Prajesh Ananthan
- *         Created on 3/9/2017.
- */
 @Component
 @Slf4j
-public class LoginFailureEventHandler implements ApplicationListener<LoginFailureEvent> {
+public class LoginSuccessEventHandler implements ApplicationListener<LoginSuccessEvent> {
 
   private UserService userService;
 
@@ -24,22 +21,19 @@ public class LoginFailureEventHandler implements ApplicationListener<LoginFailur
   }
 
   @Override
-  public void onApplicationEvent(LoginFailureEvent event) {
+  public void onApplicationEvent(LoginSuccessEvent event) {
     Authentication authentication = (Authentication) event.getSource();
+    log.error("Login success for " + ((UserDetails) authentication.getPrincipal()).getUsername());
     updateUserAccount(authentication);
   }
 
   private void updateUserAccount(Authentication authentication) {
-    User user = userService.findUserByUserName((String) authentication.getPrincipal());
+    UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+    User user = userService.findUserByUserName(userDetails.getUsername());
 
-    if (user != null) {
-      user.setFailedLoginAttempts(user.getFailedLoginAttempts() + 1);
-      log.debug("Failed login attempts for " + user.getUserName() + ": " + user.getFailedLoginAttempts());
-
-      if (user.getFailedLoginAttempts() > 5) {
-        user.setEnabled(false);
-        log.error("User account " + user.getUserName() + " is locked!");
-      }
+    if (user != null && user.getFailedLoginAttempts() > 0) {
+      user.setFailedLoginAttempts(0);
+      log.info("User account " + user.getUserName() + " has been unlocked");
       userService.saveOrUpdate(user);
     }
   }
