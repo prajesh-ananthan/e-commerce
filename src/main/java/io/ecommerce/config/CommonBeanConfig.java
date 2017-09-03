@@ -3,6 +3,7 @@ package io.ecommerce.config;
 import org.jasypt.util.password.StrongPasswordEncryptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -12,6 +13,7 @@ import java.util.ResourceBundle;
  *         Created on 30/7/2017.
  */
 @Configuration
+@EnableScheduling
 public class CommonBeanConfig {
   @Bean
   public StrongPasswordEncryptor strongEncryptor() {

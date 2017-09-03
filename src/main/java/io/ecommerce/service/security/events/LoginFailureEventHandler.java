@@ -38,7 +38,7 @@ public class LoginFailureEventHandler implements ApplicationListener<LoginFailur
 
       if (user.getFailedLoginAttempts() > 5) {
         user.setEnabled(false);
-        log.error("User account " + user.getUserName() + " is locked!");
+        log.error("### USER ACCOUNT IS LOCKED!");
       }
       userService.saveOrUpdate(user);
     }

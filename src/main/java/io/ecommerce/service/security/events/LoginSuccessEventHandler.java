@@ -23,7 +23,7 @@ public class LoginSuccessEventHandler implements ApplicationListener<LoginSucces
   @Override
   public void onApplicationEvent(LoginSuccessEvent event) {
     Authentication authentication = (Authentication) event.getSource();
-    log.error("Login success for " + ((UserDetails) authentication.getPrincipal()).getUsername());
+    log.debug("Login success for " + ((UserDetails) authentication.getPrincipal()).getUsername());
     updateUserAccount(authentication);
   }
 
@@ -33,7 +33,7 @@ public class LoginSuccessEventHandler implements ApplicationListener<LoginSucces
 
     if (user != null && user.getFailedLoginAttempts() > 0) {
       user.setFailedLoginAttempts(0);
-      log.info("User account " + user.getUserName() + " has been unlocked");
+      log.debug("Resetting login failed attempts to 0");
       userService.saveOrUpdate(user);
     }
   }
