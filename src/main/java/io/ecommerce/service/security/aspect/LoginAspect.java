@@ -1,7 +1,10 @@
 package io.ecommerce.service.security.aspect;
 
+import io.ecommerce.service.security.events.LoginFailureEvent;
+import io.ecommerce.service.security.events.LoginFailureEventPublisher;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.annotation.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
@@ -14,6 +17,14 @@ import org.springframework.stereotype.Component;
 @Component
 @Slf4j
 public class LoginAspect {
+
+  private LoginFailureEventPublisher publisher;
+
+  @Autowired
+  public void setPublisher(LoginFailureEventPublisher publisher) {
+    this.publisher = publisher;
+  }
+
   @Pointcut("execution(* org.springframework.security.authentication.AuthenticationProvider.authenticate(..))")
   public void doAuthenticate() {
   }
@@ -33,5 +44,7 @@ public class LoginAspect {
   public void logAuthenicationException(Authentication authentication) {
     String userDetails = (String) authentication.getPrincipal();
     log.error("Login failed for user: " + userDetails);
+
+    publisher.publish(new LoginFailureEvent(authentication));
   }
 }
