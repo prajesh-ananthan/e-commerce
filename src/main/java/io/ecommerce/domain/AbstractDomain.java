@@ -1,7 +1,5 @@
 package io.ecommerce.domain;
 
-import lombok.Data;
-
 import javax.persistence.*;
 import java.util.Date;
 
@@ -10,7 +8,6 @@ import java.util.Date;
  *         Created on 6/8/2017.
  */
 
-@Data
 @MappedSuperclass
 public class AbstractDomain implements DomainObject {
 
@@ -21,6 +18,30 @@ public class AbstractDomain implements DomainObject {
   private Integer version;
   private Date createdDate;
   private Date modifiedDate;
+
+  public Integer getVersion() {
+    return version;
+  }
+
+  public void setVersion(Integer version) {
+    this.version = version;
+  }
+
+  public Date getCreatedDate() {
+    return createdDate;
+  }
+
+  public void setCreatedDate(Date createdDate) {
+    this.createdDate = createdDate;
+  }
+
+  public Date getModifiedDate() {
+    return modifiedDate;
+  }
+
+  public void setModifiedDate(Date modifiedDate) {
+    this.modifiedDate = modifiedDate;
+  }
 
   @Override
   public Integer getId() {

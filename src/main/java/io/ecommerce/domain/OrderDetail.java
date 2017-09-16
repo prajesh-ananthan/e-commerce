@@ -1,7 +1,5 @@
 package io.ecommerce.domain;
 
-import lombok.Data;
-
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 
@@ -9,7 +7,6 @@ import javax.persistence.OneToOne;
  * @author Prajesh Ananthan
  *         Created on 6/8/2017.
  */
-@Data
 @Entity
 public class OrderDetail extends AbstractDomain {
   @OneToOne
@@ -17,4 +14,28 @@ public class OrderDetail extends AbstractDomain {
   private Integer quantity;
   @OneToOne
   private Order order;
+
+  public Product getProduct() {
+    return product;
+  }
+
+  public void setProduct(Product product) {
+    this.product = product;
+  }
+
+  public Integer getQuantity() {
+    return quantity;
+  }
+
+  public void setQuantity(Integer quantity) {
+    this.quantity = quantity;
+  }
+
+  public Order getOrder() {
+    return order;
+  }
+
+  public void setOrder(Order order) {
+    this.order = order;
+  }
 }

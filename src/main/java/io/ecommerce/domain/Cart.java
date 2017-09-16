@@ -15,7 +15,6 @@ import java.util.List;
  */
 
 @Entity
-@Data
 public class Cart extends AbstractDomain {
 
   @OneToOne
