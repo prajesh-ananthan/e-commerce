@@ -1,15 +1,13 @@
 package io.ecommerce.domain;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 /**
  * @author Prajesh Ananthan
  *         Created on 23/7/2017.
  */
 @Entity
+@Table(name = "customer")
 public class Customer extends AbstractDomain {
 
   private String firstName;

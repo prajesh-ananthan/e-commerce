@@ -3,12 +3,14 @@ package io.ecommerce.domain;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 /**
  * @author Prajesh Ananthan
  *         Created on 1/8/2017.
  */
 @Entity
+@Table(name = "cart_detail")
 public class CartDetail extends AbstractDomain {
 
   @ManyToOne

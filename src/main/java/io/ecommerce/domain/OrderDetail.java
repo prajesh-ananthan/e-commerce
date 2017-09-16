@@ -2,12 +2,14 @@ package io.ecommerce.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 /**
  * @author Prajesh Ananthan
  *         Created on 6/8/2017.
  */
 @Entity
+@Table(name = "order_detail")
 public class OrderDetail extends AbstractDomain {
   @OneToOne
   private Product product;

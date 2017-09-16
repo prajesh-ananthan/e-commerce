@@ -11,7 +11,7 @@ import java.util.List;
  *         Created on 5/8/2017.
  */
 @Entity
-@Table(name = "ORDER_HEADER")
+@Table(name = "order_header")
 public class Order extends AbstractDomain {
 
   @OneToMany(cascade = CascadeType.ALL, mappedBy = "order", orphanRemoval = true)

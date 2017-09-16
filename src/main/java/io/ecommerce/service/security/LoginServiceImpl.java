@@ -30,7 +30,7 @@ public class LoginServiceImpl implements LoginService {
   @Scheduled(fixedRate = 60000)
   @Override
   public void resetFailedLogins() {
-    log.info("Checking for locked user accounts");
+    log.info("Starting scheduler. Checking for locked user accounts");
 
     List<User> userList = (List<User>) userService.list();
 

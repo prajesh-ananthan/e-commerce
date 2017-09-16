@@ -2,10 +2,7 @@ package io.ecommerce.domain;
 
 import lombok.Data;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +12,7 @@ import java.util.List;
  */
 
 @Entity
+@Table(name = "cart")
 public class Cart extends AbstractDomain {
 
   @OneToOne
